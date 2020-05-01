@@ -84,7 +84,7 @@ class Particle:
             if self in particle.connections and particle in self.connections:
                 self.connections.remove(particle)
 
-mainParticle = Particle(0, 0, 0, 0, colors.random())
+mainParticle = Particle(0, 0, 0, 0, colors.random(colors.Gray))
 
 def start():
     clock = pygame.time.Clock()
@@ -109,10 +109,10 @@ def start():
     connectionRange = args.connectionRange
     unifiedColors = args.unicolor
 
-    particles = [Particle(random.randint(0, width), random.randint(0, height), random.randrange(min_speed, max_speed), random.randrange(min_speed, max_speed), colors.random()) for _ in range(n_particles)]
+    particles = [Particle(random.randint(0, width), random.randint(0, height), random.randrange(min_speed, max_speed), random.randrange(min_speed, max_speed), colors.random(colors.Gray)) for _ in range(n_particles)]
 
     if unifiedColors:
-        color = colors.random(colors.Lime, colors.Aqua, colors.Yellow, colors.Green) # Each color we add here is not included in the randomizer
+        color = colors.Black # Each color we add here is not included in the randomizer
         for particle in particles:
             particle.color = color
     while True:
@@ -123,7 +123,7 @@ def start():
                 quit()
                 sys.exit()
 
-        win.fill((170, 170, 170))
+        win.fill(colors.Gray)
 
         mainParticle.mouseMove(particles, connectionRange)
         mainParticle.draw(win)
