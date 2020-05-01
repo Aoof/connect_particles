@@ -43,10 +43,10 @@ colors = Colors()
 
 id = 0
 class Particle:
-    connections = []
     def __init__(self, x, y, xPush, yPush, color):
         global id
         self.x, self.y, self.xPush, self.yPush = x, y, xPush, yPush
+        self.connections = []
         self.color = color
         id += 1
         self.id = id
