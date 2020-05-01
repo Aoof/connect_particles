@@ -112,7 +112,7 @@ def start():
     particles = [Particle(random.randint(0, width), random.randint(0, height), random.randrange(min_speed, max_speed), random.randrange(min_speed, max_speed), colors.random()) for _ in range(n_particles)]
 
     if unifiedColors:
-        color = colors.random(colors.Lime, colors.Aqua, colors.Yellow)
+        color = colors.random(colors.Lime, colors.Aqua, colors.Yellow, colors.Green) # Each color we add here is not included in the randomizer
         for particle in particles:
             particle.color = color
     while True:
