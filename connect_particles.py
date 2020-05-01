@@ -40,7 +40,6 @@ class Colors:
 
 colors = Colors()
 
-
 id = 0
 class Particle:
     def __init__(self, x, y, xPush, yPush, color):
@@ -82,6 +81,8 @@ class Particle:
             else:
                 if particle in self.connections:
                     self.connections.remove(particle)
+            if self in particle.connections and particle in self.connections:
+                self.connections.remove(particle)
 
 mainParticle = Particle(0, 0, 0, 0, colors.random())
 
