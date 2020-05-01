@@ -86,18 +86,21 @@ class Particle:
 mainParticle = Particle(0, 0, 0, 0, colors.random())
 
 def start():
-    width, height = (1200, 800)
-    win = pygame.display.set_mode((width, height))
     clock = pygame.time.Clock()
 
     parser = argparse.ArgumentParser()
-
+    
+    parser.add_argument("--width", default=1200, type=int, help="Window width.", dest="width")
+    parser.add_argument("--height", default=800, type=int, help="Window height.", dest="height")
     parser.add_argument("--maxspeed", default=3, type=int, help="The maximum speed of the particles.", dest="max_speed")
     parser.add_argument("--minspeed", default=1, type=int, help="The minimum speed of the particles.", dest="min_speed")
     parser.add_argument("--particles", default=50, type=int, help="The amount of particles summoned.", dest="n_particles")
     parser.add_argument("--connectat", default=150, type=int, help="When a particle reaches this much to another particle connect them.", dest="connectionRange")
 
     args = parser.parse_args()
+    
+    width, height = (args.width, args.height)
+    win = pygame.display.set_mode((width, height))
     max_speed = args.max_speed
     min_speed = args.min_speed
     n_particles = args.n_particles
