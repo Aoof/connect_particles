@@ -1,6 +1,7 @@
 import pygame
 import random
 import argparse
+import sys
 pygame.init()
 
 class Colors:
